@@ -3,7 +3,7 @@ title: "HSCTF - HS Bank"
 date: 2022-05-25
 mathjax: true
 tags: [hsctf, crypto]
-draft: true
+draft: false
 ---
 
 This challenge was part of a CTF event hosted by [HackerSchool](https://hackerschool.io).
