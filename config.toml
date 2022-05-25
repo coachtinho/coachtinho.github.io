@@ -56,7 +56,7 @@ disableHugoGeneratorInject = false
 
   # Metadata mostly used in document's head
   # 
-  description = "Cool blog"
+  description = "Personal blog, mainly for writeups"
   keywords = ""
   images = [""]
 
@@ -65,7 +65,7 @@ disableHugoGeneratorInject = false
   homeSubtitle = "Written in my free time, hoping it'd be read in your free time"
 
   # Set a background for the homepage
-  # backgroundImage = "assets/images/background.jpg"
+  #backgroundImage = "bg.jpg"
 
   # Prefix of link to the git commit detail page. GitInfo must be enabled.
   #
@@ -153,10 +153,10 @@ disableHugoGeneratorInject = false
 
   # Uncomment this if you want a portrait on your start page
   #
-  # [params.portrait]
-  #   path     = "/img/image.jpg"
-  #   alt      = "Portrait"
-  #   maxWidth = "50px"
+   #[params.portrait]
+     #path     = "mask.png"
+     #alt      = "Portrait"
+     #maxWidth = "100px"
 
   # Social icons
   [[params.social]]
@@ -181,7 +181,7 @@ disableHugoGeneratorInject = false
 
 [languages]
   [languages.en]
-    subtitle  = "Hello Friend NG Theme"
+    #subtitle  = "Hello Friend NG Theme"
     weight    = 1
     copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
 
@@ -194,12 +194,15 @@ disableHugoGeneratorInject = false
   [[menu.main]]
     identifier = "about"
     name       = "About"
-    url        = "about/"
+    url        = "pages/about"
+    weight     = 10
   [[menu.main]]
     identifier = "posts"
     name       = "Posts"
     url        = "posts/"
+    weight     = 20
   [[menu.main]]
     identifier = "tags"
-    name = "Tags"
-    url = "tags/"
+    name       = "Tags"
+    url        = "tags/"
+    weight     = 30
