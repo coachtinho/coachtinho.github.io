@@ -56,8 +56,8 @@ The objective of the challenge is to figure out what **password** generated the 
 ## Solution
 
 Analysing the code, the first aspect that comes to mind is that the secret is created by concatenating 10 different results from the `impossible_pass` function.
-This function simply picks 3 random ascii letters and returns the MD5 hash of their concatenation.
-As a result, the secret can be split into 10 different MD5 hashes.
+This function simply picks 3 random ascii letters and hashes them multiple times with 3 different algorithms (MD5, SHA1, SHA256).
+As a result, the secret can be split into 10 different SHA256 hashes.
 Since each of these hashes is calculated from only 3 random ascii letters, the search space is small enough that each one of them can be brute forced individually.
 
 ## Cracking the password
@@ -67,7 +67,6 @@ The **password** can be obtained through the following script, which took only 8
 ```python
 import string
 import hashlib
-import random
 
 # Split secret into 10 different hashes
 secret = "da7769f9bb80ce4ed1e4977403d9aff67f5a5e0e50686aeff5fa493e850a1d2a6c9e02a05a59c51c624fb77684e40086cb07438eba32c42074df2a718be41ee9fc338739267b25b92765ebdee1a767c8855e32d2a2e0cd1216ba1ddeae6933a7a2e692e1a6413f718c8a2078f8ce0872c76e2a287d240af4b81b3ce1c193a6316a5a8fe23dcc00ce5b86bca445d98cb08615b16a3766cc12004a5a2bcbc2d3e04cefbd24bf6394c778a1f88b5b50283b972177388bdfa645f667762472704c6477e32e728d9935a26eb4e621fd4f83e93a9bd32ec812a104c4e0ed42c49ab8c5d3159d056764b89c4cd1d310026a083cb7cb0b9af91728235c59ae4dde83e956184224d98c9d59fef5d1e61c36498958a16a4529efc162effd15cacf5359466093337c2a06ffeb72c4f54bf992651ca52591169aee8301e6dd30e9f2d68f19ad"
