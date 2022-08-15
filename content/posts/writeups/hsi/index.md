@@ -1,7 +1,6 @@
 ---
 title: "HSCTF - Local File Inclusion"
 date: 2022-05-26
-mathjax: true
 tags: [hsctf, web]
 draft: false
 ---

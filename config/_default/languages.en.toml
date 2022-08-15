@@ -1,0 +1,24 @@
+languageCode = "en"
+languageName = "English"
+displayName = ":flag-uk:"
+isoCode = "en"
+weight = 1
+rtl = false
+
+title = "The Coach Cave"
+ #logo = "img/logo.jpg"
+description = "Personal blog, mainly for writeups"
+copyright = "&copy; 2022 Congo contributors"
+
+dateFormat = "2 January 2006"
+
+[author]
+  name = "João Coutinho"
+  image = "avatar.jpg"
+  #headline = "Msc Cyber-Security"
+  #bio = "Msc Cyber-Security"
+  links = [
+    { twitter = "https://twitter.com/jafonsoc" },
+    { github = "https://github.com/coachtinho" },
+    { linkedin = "https://linkedin.com/joão-coutinho-a5b20a20a" }
+  ]

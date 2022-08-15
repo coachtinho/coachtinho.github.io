@@ -125,6 +125,8 @@ app.run('0.0.0.0', 5000)
 
 Providing this web server's link to the site will display the flag on the page.
 
-> NOTE: with this implementation, only one of the links can point to the flask application
+{{< alert >}}
+**NOTE**: with this implementation, only one of the links can point to the flask application
+{{< /alert >}}
 
 {{< figure src="flag.png" caption="The censored flag is shown at the bottom of the page" >}}

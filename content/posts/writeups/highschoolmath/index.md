@@ -1,10 +1,10 @@
 ---
 title: "HSCTF - High School Math"
 date: 2022-05-24
-mathjax: true
 tags: [hsctf, crypto]
 draft: false
 ---
+{{< katex >}}
 
 This challenge was part of a CTF event hosted by [HackerSchool](https://hackerschool.io).
 
@@ -41,8 +41,8 @@ print(f"{c = }")
 ## Solution
 
 The first lines of the script show a standard RSA scenario where a key is generated and used to encrypt the flag. The comments at the end show us the output of the script.
-The objects we have to work with are the public key, the ciphertext and an extra expression summing the squares of $a$, $b$ and $n$ (which I will refer to as $x$ from now on).
-In order to solve an RSA problem like this we need to figure out the private key exponent $d$, and then decrypt the ciphertext:
+The objects we have to work with are the public key, the ciphertext and an extra expression summing the squares of \\(a\\), \\(b\\) and \\(n\\) (which I will refer to as \\(x\\) from now on).
+In order to solve an RSA problem like this we need to figure out the private key exponent \\(d\\), and then decrypt the ciphertext:
 
 $$
 d=e^{-1}\ mod\ \phi(n),\ where\ \phi(n)=(a-1)(b-1)
@@ -52,8 +52,8 @@ $$
 m=c^d\ mod\ n
 $$
 
-Therefore, the objective of this challenge is to figure out the value of $(a - 1)(b - 1)$.
-Since $a$ and $b$ each are composed of 1024 bits, any attempt at factoring $n$ is discarded right away.
+Therefore, the objective of this challenge is to figure out the value of \\((a - 1)(b - 1)\\).
+Since \\(a\\) and \\(b\\) each are composed of 1024 bits, any attempt at factoring \\(n\\) is discarded right away.
 We can however, manipulate the given expressions in order to isolate what we want like so:
 
 $$
