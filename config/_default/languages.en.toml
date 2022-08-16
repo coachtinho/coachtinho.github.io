@@ -1,7 +1,7 @@
-languageCode = "en"
+languageCode = "en-us"
 languageName = "English"
-displayName = ":flag-uk:"
-isoCode = "en"
+displayName = ":flag-us:"
+isoCode = "en-us"
 weight = 1
 rtl = false
 

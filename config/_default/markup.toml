@@ -6,7 +6,8 @@
   unsafe = true
 
 [highlight]
-  noClasses = false
+  noClasses = true
+  style = "monokai"
 
 [tableOfContents]
   startLevel = 2

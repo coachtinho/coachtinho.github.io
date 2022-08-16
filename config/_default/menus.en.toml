@@ -12,17 +12,17 @@
 
 [[main]]
   name = "About"
-  pageRef = "pages/about"
+  url = "/pages/about"
   weight = 10
 
 [[main]]
   name = "Writeups"
-  pageRef = "posts/writeups"
+  url = "/posts/writeups"
   weight = 20
 
 [[main]]
   name = "Tags"
-  pageRef = "tags/"
+  url = "/tags"
   weight = 30
   
 
@@ -30,7 +30,7 @@
 # The footer menu is displayed at the bottom of the page, just before
 # the copyright notice. Configure as per the main menu above.
 
-# [[footer]]
-#   name = "Tags"
-#   pageRef = "tags"
-#   weight = 10
+ [[footer]]
+   name = "RSS"
+   url = "/index.xml"
+   weight = 10

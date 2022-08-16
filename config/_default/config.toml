@@ -9,5 +9,10 @@ enableRobotsTXT = true
 paginate = 10
 summaryLength = 0
 
+canonifyURLs = true
+
 [outputs]
   home = ["HTML", "RSS", "JSON"]
+
+[permalinks]
+  posts = "/posts/:year/:month/:title/"
