@@ -14,7 +14,7 @@ dateFormat = "2 January 2006"
 
 [author]
   name = "João Coutinho"
-  image = "avatar.jpg"
+  image = "img/avatar.jpg"
   #headline = "Msc Cyber-Security"
   #bio = "Msc Cyber-Security"
   links = [

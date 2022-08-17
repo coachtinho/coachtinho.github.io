@@ -6,7 +6,9 @@ draft: false
 ---
 {{< katex >}}
 
+{{< lead >}}
 This challenge was part of a CTF event hosted by [HackerSchool](https://hackerschool.io).
+{{< /lead >}}
 
 ![logo](logo.png)
 
