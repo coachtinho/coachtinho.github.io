@@ -8,7 +8,7 @@ rtl = false
 title = "The Coach Cave"
  #logo = "img/logo.jpg"
 description = "Personal blog, mainly for writeups"
-copyright = "&copy; 2022 Congo contributors"
+copyright = "&copy; 2022 João Coutinho"
 
 dateFormat = "2 January 2006"
 
