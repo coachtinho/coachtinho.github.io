@@ -11,19 +11,24 @@
 # ordered by weight from lowest to highest.
 
 [[main]]
-  name = "About"
-  url = "/pages/about"
+  name = "Writeups"
+  url = "/posts/writeups"
   weight = 10
 
 [[main]]
-  name = "Writeups"
-  url = "/posts/writeups"
+  name = "Photography"
+  url = "/pages/photography"
   weight = 20
+
+[[main]]
+  name = "About"
+  url = "/pages/about"
+  weight = 30
 
 [[main]]
   name = "Tags"
   url = "/tags"
-  weight = 30
+  weight = 40
   
 
 # -- Footer Menu --
