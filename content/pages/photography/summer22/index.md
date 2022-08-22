@@ -19,3 +19,4 @@ Collection of photographs taken over the summer
 ![](IMG_20220806_175850.jpg)
 ![](IMG_20220812_224938.jpg)
 ![](IMG_20220818_200000.jpg)
+![](IMG_20220819_193716.jpg)
