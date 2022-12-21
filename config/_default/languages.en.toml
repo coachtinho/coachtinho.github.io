@@ -15,11 +15,11 @@ dateFormat = "2 January 2006"
 [author]
   name = "João Coutinho"
   image = "img/avatar.jpg"
-  #headline = "Msc Cyber-Security"
-  #bio = "Msc Cyber-Security"
+  headline = "Msc Cyber-Security"
+  bio = "Msc Cyber-Security"
   links = [
     { twitter = "https://twitter.com/jafonsoc" },
     { mastodon = "https://infosec.exchange/@coachtinho" },
     { github = "https://github.com/coachtinho" },
-    { linkedin = "https://linkedin.com/joão-coutinho-a5b20a20a" }
+    { linkedin = "https://linkedin.com/in/joão-coutinho-a5b20a20a" }
   ]
