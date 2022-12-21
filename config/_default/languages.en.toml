@@ -19,6 +19,7 @@ dateFormat = "2 January 2006"
   #bio = "Msc Cyber-Security"
   links = [
     { twitter = "https://twitter.com/jafonsoc" },
+    { mastodon = "https://infosec.exchange/@coachtinho" },
     { github = "https://github.com/coachtinho" },
     { linkedin = "https://linkedin.com/joão-coutinho-a5b20a20a" }
   ]
