@@ -9,3 +9,4 @@ Collection of photographs taken over the winter
 {{< /lead >}}
 
 ![](IMG_20221221_213328.jpg)
+![](IMG_20221227_175224__01.jpg)
