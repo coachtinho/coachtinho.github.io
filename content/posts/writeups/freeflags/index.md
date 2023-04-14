@@ -13,7 +13,7 @@ This challenge was part of a CTF event hosted by [SINFO 30](https://sinfo.org/).
 
 This challenge provided a web application deployed using 3 docker containers: a web frontend running in Python, a Redis backend using an image from the Docker registry and a scraper bot running in JavaScript.
 
-```dockerfile
+```yaml
 # docker-compose.yml
 
 version: '3'
