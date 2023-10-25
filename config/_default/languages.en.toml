@@ -8,18 +8,16 @@ rtl = false
 title = "The Coach Cave"
  #logo = "img/logo.jpg"
 description = "Personal blog, mainly for writeups"
-copyright = "&copy; 2023 João Coutinho"
+copyright = "&copy; 2023 Afonso Coutinho"
 
 dateFormat = "2 January 2006"
 
 [author]
-  name = "João Coutinho"
+  name = "Afonso Coutinho"
   image = "img/avatar.jpg"
   headline = "Msc Cyber-Security"
   bio = "Msc Cyber-Security"
   links = [
-    { twitter = "https://twitter.com/jafonsoc" },
-    { mastodon = "https://infosec.exchange/@coachtinho" },
     { github = "https://github.com/coachtinho" },
     { linkedin = "https://linkedin.com/in/joão-coutinho-a5b20a20a" }
   ]
