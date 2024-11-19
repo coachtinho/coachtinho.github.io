@@ -11,18 +11,19 @@
 # ordered by weight from lowest to highest.
 
 [[main]]
+  identifier = "search"
+  weight = 1
+  [main.params]
+    action = "search"
+
+[[main]]
   name = "Writeups"
-  url = "/posts/writeups"
+  pageRef = "posts"
   weight = 10
 
 [[main]]
-  name = "Photography"
-  url = "/pages/photography"
-  weight = 20
-
-[[main]]
   name = "About"
-  url = "/pages/about"
+  pageRef = "about"
   weight = 30
 
 [[main]]
