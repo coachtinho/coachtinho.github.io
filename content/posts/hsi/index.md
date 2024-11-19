@@ -1,7 +1,7 @@
 ---
 title: "HSCTF - Local File Inclusion"
 date: 2022-05-26
-tags: [hsctf, web]
+tags: [hsctf, web, lfi, jwt]
 draft: false
 ---
 

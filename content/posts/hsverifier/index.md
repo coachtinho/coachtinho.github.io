@@ -2,7 +2,7 @@
 title: "HSCTF - HS Verifier"
 date: 2022-05-25
 mathjax: true
-tags: [hsctf, web]
+tags: [hsctf, web, ssrf]
 draft: false
 ---
 

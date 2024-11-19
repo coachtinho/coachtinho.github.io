@@ -1,7 +1,7 @@
 ---
 title: "HSCTF - HS Bank"
 date: 2022-05-25
-tags: [hsctf, crypto]
+tags: [hsctf, crypto, brute_force]
 draft: false
 ---
 

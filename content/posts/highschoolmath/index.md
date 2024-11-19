@@ -1,7 +1,7 @@
 ---
 title: "HSCTF - High School Math"
 date: 2022-05-24
-tags: [hsctf, crypto]
+tags: [hsctf, crypto, rsa]
 draft: false
 ---
 {{< katex >}}

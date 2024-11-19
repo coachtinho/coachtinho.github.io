@@ -1,7 +1,7 @@
 ---
 title: "Sinfo CTF - Free Flags"
 date: 2023-04-14
-tags: [sinfoctf, web]
+tags: [sinfoctf, web, redis, command_injection]
 draft: false
 ---
 

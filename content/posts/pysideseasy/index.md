@@ -1,7 +1,7 @@
 ---
 title: "Sinfo CTF - PySides Easy"
 date: 2023-04-30
-tags: [sinfoctf, crypto]
+tags: [sinfoctf, crypto, side_channel]
 draft: false
 ---
 
