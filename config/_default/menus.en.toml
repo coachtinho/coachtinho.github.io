@@ -12,24 +12,19 @@
 
 [[main]]
   identifier = "search"
-  weight = 1
+  weight = 10
   [main.params]
     action = "search"
 
 [[main]]
   name = "Writeups"
   pageRef = "posts"
-  weight = 10
-
-[[main]]
-  name = "About"
-  pageRef = "about"
-  weight = 30
+  weight = 20
 
 [[main]]
   name = "Tags"
   pageRef = "/tags"
-  weight = 40
+  weight = 30
   
 
 # -- Footer Menu --
