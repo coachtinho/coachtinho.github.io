@@ -1,8 +1,8 @@
 ---
 title: HTB - Sightless
-date: 2024-11-06
+date: 2025-01-16
 tags: [htb, linux, easy, cve, hashcat]
-draft: true
+draft: false
 ---
 
 # Hack The Box: Sightless Machine Writeup
